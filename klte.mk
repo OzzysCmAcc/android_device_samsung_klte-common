@@ -160,7 +160,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     libnetcmdiface \
-    macloader
+    macloader \
+    wificond
 
 PRODUCT_PACKAGES += \
     hostapd.accept \
