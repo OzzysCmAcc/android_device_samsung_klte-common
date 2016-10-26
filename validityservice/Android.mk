@@ -1,6 +1,4 @@
-#
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2016 The Mokee Project
+# Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,16 +11,23 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := fingerprint.msm8974
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_SRC_FILES := fingerprint.c
-LOCAL_SHARED_LIBRARIES := liblog
-LOCAL_MODULE_TAGS := optional
+LOCAL_PACKAGE_NAME := ValidityService
 
-include $(BUILD_SHARED_LIBRARY)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+LOCAL_AAPT_FLAGS := --auto-add-overlay
+
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
+LOCAL_CERTIFICATE := platform
+LOCAL_PRIVILEGED_MODULE := true
+
+LOCAL_JACK_ENABLED := disabled
+
+include $(BUILD_PACKAGE)
