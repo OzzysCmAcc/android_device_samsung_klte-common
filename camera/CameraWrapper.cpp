@@ -22,7 +22,7 @@
 *
 */
 
-//#define LOG_NDEBUG 0
+#define LOG_NDEBUG 0
 
 #define LOG_TAG "CameraWrapper"
 #include <cutils/log.h>
@@ -120,10 +120,10 @@ static char *camera_fixup_getparams(int id __unused, const char *settings)
 #endif
 
     /* Hide nv12-venus from Android */
-    const char *previewFormat = params.get(android::CameraParameters::KEY_PREVIEW_FORMAT);
+    const char *previewFormat = params.get(CameraParameters::KEY_PREVIEW_FORMAT);
     if (previewFormat) {
         if (!strcmp(previewFormat, "nv12-venus")) {
-            params.set(android::CameraParameters::KEY_PREVIEW_FORMAT, "yuv420sp");
+            params.set(CameraParameters::KEY_PREVIEW_FORMAT, "yuv420sp");
         }
     }
 
