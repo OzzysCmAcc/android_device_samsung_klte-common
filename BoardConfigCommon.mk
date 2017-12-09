@@ -23,9 +23,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 # Use Snapdragon LLVM if available on build server
 TARGET_USE_SDCLANG := true
 
-# ADB Legacy Interface
-TARGET_USES_LEGACY_ADB_INTERFACE := true
-
 # Binder
 TARGET_USES_64_BIT_BINDER := true
 
